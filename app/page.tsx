@@ -27,12 +27,18 @@ const IWishThereWere = () => {
   const [newComment, setNewComment] = useState<{[key: number]: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Fetch wishes for founders
   useEffect(() => {
-    if (isFounder) {
-      fetchWishes();
-    }
-  }, [isFounder]);
+  fetchWishes(); // Always fetch wishes, not just for founders
+}, []);
+
+useEffect(() => {
+  if (isFounder) {
+    // Fetch comments when becoming a founder
+    wishes.forEach(wish => {
+      fetchComments(wish.id);
+    });
+  }
+}, [isFounder, wishes]);
 
   const fetchWishes = async () => {
     try {
