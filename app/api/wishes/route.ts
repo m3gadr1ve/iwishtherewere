@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await pool.query(
-      'INSERT INTO wishes (text, ip_hash) VALUES ($1, $2) RETURNING *',
+      'INSERT INTO wishes (text, created_at, ip_hash) VALUES ($1, NOW(), $2) RETURNING *',
       [text.trim(), 'hashed-ip'] // You can implement proper IP hashing later
     );
 
