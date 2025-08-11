@@ -31,7 +31,7 @@ export async function POST(request: NextRequest) {
     }
 
     const result = await pool.query(
-      'INSERT INTO comments (wish_id, text, founder_name) VALUES ($1, $2, $3) RETURNING *',
+      'INSERT INTO comments (wish_id, text, founder_name, created_at) VALUES ($1, $2, $3, NOW()) RETURNING *',
       [wishId, text.trim(), founderName]
     );
 
