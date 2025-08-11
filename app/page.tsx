@@ -356,7 +356,7 @@ const IWishThereWere = () => {
               value={newWish}
               onChange={(e) => setNewWish(e.target.value)}
               placeholder="car cleaning services near me"
-              className="w-full text-lg px-0 py-4 border-0 border-b-2 border-gray-200 focus:border-black focus:ring-0 transition-colors bg-transparent"
+              className="w-full text-lg px-4 py-4 border-0 border-b-2 border-gray-200 focus:border-black focus:ring-0 transition-colors bg-transparent"
               onKeyPress={(e) => e.key === 'Enter' && handleWishSubmit(e)}
             />
           </div>
